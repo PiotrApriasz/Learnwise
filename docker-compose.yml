@@ -1,0 +1,6 @@
+﻿services:
+  learnwise.minimalapi:
+    image: learnwise.minimalapi
+    build:
+      context: .
+      dockerfile: Learnwise.MinimalApi/Dockerfile
