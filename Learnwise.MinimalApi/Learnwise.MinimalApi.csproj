@@ -30,7 +30,9 @@
       <Folder Include="LearningTasks\" />
       <Folder Include="Roadmaps\DeleteRoadmap\" />
       <Folder Include="Roadmaps\UpdateRoadmap\" />
-      <Folder Include="Tasks\" />
+      <Folder Include="Tasks\DeleteTask\" />
+      <Folder Include="Tasks\GetTasks\" />
+      <Folder Include="Tasks\ModifyTask\" />
     </ItemGroup>
 
 </Project>

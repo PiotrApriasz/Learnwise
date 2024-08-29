@@ -19,11 +19,12 @@ internal sealed class GlobalExceptionHandler(ILogger<GlobalExceptionHandler> log
         CancellationToken cancellationToken)
     {
         LogException(logger, ErrorOccurredMessage, exception);
+        
         var problemDetails = exception switch
         {
-            BusinessRuleValidationException businessRuleValidationException => new ProblemDetails
+            BusinessRuleValidationException businessRuleValidationException => new ValidationProblemDetails()
             {
-                Status = StatusCodes.Status409Conflict,
+                Status = StatusCodes.Status400BadRequest,
                 Title = businessRuleValidationException.Message
             },
             _ => new ProblemDetails

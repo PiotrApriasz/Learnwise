@@ -33,6 +33,7 @@ internal static class AddRoadmapEndpoint
             Summary = "Triggers adding new roadmap for the user",
             Description = "This endpoint is used to add new roadmap to the user"
         })
+        .ProducesValidationProblem()
         .Produces<string>(StatusCodes.Status201Created)
         .Produces(StatusCodes.Status500InternalServerError);
 }
