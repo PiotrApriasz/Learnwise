@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace Learnwise.MinimalApi.Tasks.Data;
 
 internal sealed class CodeSnippet

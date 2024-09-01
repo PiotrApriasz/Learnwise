@@ -2,6 +2,8 @@ using Learnwise.MinimalApi.Common.Clock;
 using Learnwise.MinimalApi.Common.ErrorHandling;
 using Learnwise.MinimalApi.Common.Events.EventBus;
 using Learnwise.MinimalApi.Common.Validation.Requests;
+using Learnwise.MinimalApi.Database;
+using Learnwise.MinimalApi.Roadmaps;
 using Learnwise.MinimalApi.Tasks;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +16,11 @@ builder.Services.AddEventBus();
 builder.Services.AddREquestsValidations();
 builder.Services.AddClock();
 
-builder.Services.AddTasks(builder.Configuration);
 
+builder.Services.AddDatabase(builder.Configuration);
+
+builder.Services.AddTasks(builder.Configuration);
+builder.Services.AddRoadmaps(builder.Configuration);
 
 
 var app = builder.Build();
@@ -27,7 +32,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseDatabase();
+
 app.UseTasks();
+app.UseRoadmaps();
 
 app.UseHttpsRedirection();
 
@@ -36,6 +44,9 @@ app.UseAuthorization();
 app.UseErrorHandling();
 
 app.MapControllers();
+
+app.MapTasks();
+app.MapRoadmaps();
 
 app.Run();
 

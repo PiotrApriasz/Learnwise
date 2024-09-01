@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Learnwise.MinimalApi.Roadmaps.Data.Database;
+namespace Learnwise.MinimalApi.Roadmaps.Data;
 
 internal sealed class RoadmapEntityConfiguration : IEntityTypeConfiguration<Roadmap>
 {

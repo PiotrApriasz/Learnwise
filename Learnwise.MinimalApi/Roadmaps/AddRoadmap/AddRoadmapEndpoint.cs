@@ -1,8 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using FluentValidation;
 using Learnwise.MinimalApi.Common.Validation.Requests;
+using Learnwise.MinimalApi.Database;
 using Learnwise.MinimalApi.Roadmaps.Data;
-using Learnwise.MinimalApi.Roadmaps.Data.Database;
 using Microsoft.OpenApi.Models;
 
 namespace Learnwise.MinimalApi.Roadmaps.AddRoadmap;
@@ -11,7 +11,7 @@ internal static class AddRoadmapEndpoint
 {
     internal static void MapAddRoadmap(this IEndpointRouteBuilder app) => app.MapPost(RoadmapsApiPaths.Add,
             async (AddRoadmapRequest request, IValidator<AddRoadmapRequest> validator,
-                RoadmapsPersistence persistence, CancellationToken cancellationToken) =>
+                LearnwisePersistence persistence, CancellationToken cancellationToken) =>
             {
                 var roadmap = new Roadmap
                 {

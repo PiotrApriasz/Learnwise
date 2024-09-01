@@ -4,7 +4,7 @@ namespace Learnwise.MinimalApi.Roadmaps;
 
 internal static class RoadmapEndpoints
 {
-    internal static void MapContracts(this IEndpointRouteBuilder app)
+    internal static void MapRoadmaps(this IEndpointRouteBuilder app)
     {
         app.MapAddRoadmap();
     }

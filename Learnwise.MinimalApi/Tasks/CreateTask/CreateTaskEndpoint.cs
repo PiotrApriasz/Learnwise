@@ -1,6 +1,6 @@
 using Learnwise.MinimalApi.Common.Validation.Requests;
+using Learnwise.MinimalApi.Database;
 using Learnwise.MinimalApi.Tasks.Data;
-using Learnwise.MinimalApi.Tasks.Data.Database;
 using Microsoft.OpenApi.Models;
 using Task = Learnwise.MinimalApi.Tasks.Data.Task;
 
@@ -9,7 +9,7 @@ namespace Learnwise.MinimalApi.Tasks.CreateTask;
 internal static class CreateTaskEndpoint
 {
     internal static void MapCreateTask(this IEndpointRouteBuilder app) => app.MapPost(TasksApiPaths.Create,  
-        async (CreateTaskRequest request, TasksPersistence persistence, CancellationToken cancellationToken) =>
+        async (CreateTaskRequest request, LearnwisePersistence persistence, CancellationToken cancellationToken) =>
         {
             var task = new Task
             {

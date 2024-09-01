@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
-namespace Learnwise.MinimalApi.Tasks.Data.Database;
+namespace Learnwise.MinimalApi.Tasks.Data;
 
 internal sealed class TaskEntityConfiguration : IEntityTypeConfiguration<Task>
 {
@@ -10,7 +10,7 @@ internal sealed class TaskEntityConfiguration : IEntityTypeConfiguration<Task>
         builder.ToTable("Tasks");
         builder.HasKey(task => task.Id);
         builder.Property(task => task.Completed).IsRequired();
-        builder.Property(task => task.Deadline).IsRequired(false);
+        builder.Property(task => task.Deadline).IsRequired();
         builder.Property(task => task.Name).IsRequired();
         builder.Property(task => task.Description).IsRequired(false);
         builder.Property(task => task.CreatedAt).IsRequired();
